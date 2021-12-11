@@ -30,9 +30,14 @@ urlpatterns = [
     path('departamentos/<int:id>/editar/', views.editar_dpto, name="editar_dpto"),
     path('departamentos/<int:id>/borrar/', views.borrar_dpto, name="borrar_dpto"),
     # eliminar dpto
+    
     # listar empleados
+    path ('empleados/lista', views.lista_empleados, name="lista_empleados"),
     # ver empleado
+    path ('empleados/<int:id>/', views.ver_empleado, name="ver_empleado"),
+    
     # crear empleado
+    path ('empleados/nuevo/', views.nuevo_empleado, name="nuevo_empleado"),
     # editar empleado
     # eliminar empleado
 ]
