@@ -1,7 +1,7 @@
 from django.http.response import Http404
 from django.shortcuts import render, HttpResponse, redirect
-from bienvenido.models import Departamento
-from bienvenido.forms import FiltroDptos, DepartamentoForm
+from bienvenido.models import Departamento, Empleado
+from bienvenido.forms import FiltroDptos, DepartamentoForm, EmpleadoForm
 
 # Create your views here.
 def bienvenido(request):
@@ -74,3 +74,44 @@ def borrar_dpto(request,id):
         dpto.delete()
         return redirect("departamentos")
     return render(request, "bienvenido/borrar_dpto.html", {"dpto":dpto})
+
+def ver_empleado(request, id):
+    try:
+        empleado = Empleado.objects.get(pk=id)
+    except:
+        raise Http404("no hay ese Empleado")
+
+    contexto = {
+        "empleado":empleado
+    }
+    return render(request, "bienvenido/empleado.html", contexto)
+
+def nuevo_empleado(request):
+    formulario = EmpleadoForm(request.POST or None)
+    
+    if request.method == "POST":
+        if formulario.is_valid():
+            empleado = formulario.save()
+            return redirect("ver_empleado", empleado.id)
+
+    template = "bienvenido/nuevo_empleado.html"
+    contexto = {
+        "formulario":formulario
+    }
+    return render(request, template, contexto)
+
+def lista_empleados(request):
+    #formulario = FiltroDptos(request.GET or None)
+    #if formulario.is_valid():
+    #    print("formulario valido: ", formulario.cleaned_data)
+    #    filtro_nombre = formulario.cleaned_data["nombre"]
+    #    dptos = Departamento.objects.filter(nombre__contains = filtro_nombre)
+    #else:
+    #    print(formulario.errors)
+    #    dptos = Departamento.objects.all()
+    template = "bienvenido/lista_empleados.html"
+    contexto = {
+        "lista_empleados":Empleado.objects.all(),
+        
+    }
+    return render(request, template, contexto)
