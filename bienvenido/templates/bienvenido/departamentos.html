@@ -9,6 +9,12 @@
 <body>
     <!-- comentario en html -->
     <h1>Departamentos</h1>
+
+    <form action="" method="get">
+        {{ formulario }}
+        <input type="submit" value="FILTrAR">
+    </form>
+
     {% for dpto in lista_departamentos %}
         <!-- {{ dpto.id }} -->
         

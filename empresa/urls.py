@@ -22,4 +22,17 @@ urlpatterns = [
     path('bienvenido/', views.bienvenido),
     path('', views.inicio, name="inicio"),
     path('departamentos/', views.departamentos, name="departamentos"),
+    path('departamentos/<int:id>/', views.ver_dpto, name="ver_dpto"),
+    # ver dpto
+    # crear dpto
+    # editar dpto
+    path('departamentos/nuevo/', views.nuevo_dpto, name="nuevo_dpto"),
+    path('departamentos/<int:id>/editar/', views.editar_dpto, name="editar_dpto"),
+    path('departamentos/<int:id>/borrar/', views.borrar_dpto, name="borrar_dpto"),
+    # eliminar dpto
+    # listar empleados
+    # ver empleado
+    # crear empleado
+    # editar empleado
+    # eliminar empleado
 ]

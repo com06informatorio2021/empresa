@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Departamento(models.Model):
-    nombre = models.CharField(max_length=50, null=False, blank=False)
+    nombre = models.CharField(max_length=50, null=False, blank=False, unique=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 

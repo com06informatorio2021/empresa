@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BORRAR DPTO: {{dpto.nombre}}</h1>
+    <form action="{% url 'borrar_dpto' dpto.id %}" method="POST">
+        {% csrf_token %}
+        <h1>seguro borrar {{dpto.nombre}}?</h1>
+        <a href="{% url 'ver_dpto' dpto.id %}">Cancelar</a>
+        <input type="submit" value="borrar">
+    </form>
+</body>
+</html>
