@@ -8,6 +8,7 @@ def bienvenido(request):
     return HttpResponse("<h1>Hola Mundo</h1>")
 
 def inicio(request):
+    #import pdb; pdb.set_trace()
     template = "bienvenido/index.html"
     contexto = {}
     return render(request, template, contexto)

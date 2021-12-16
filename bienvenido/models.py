@@ -1,9 +1,9 @@
 from django.db import models
-
+#from django.contrib.auth.models import User
 # Create your models here.
 class Departamento(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False, unique=True)
-    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_creacion = models.DateTimeField(verbose_name="fecha creacion", auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -18,4 +18,4 @@ class Empleado(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True)
     dni = models.CharField(max_length=8, unique=True)
     apodo =  models.CharField(max_length=100, null=False, blank=False, default="sin apodo")
-
+    #usuario = models.ForeignKey(User)
