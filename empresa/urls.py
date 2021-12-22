@@ -32,7 +32,7 @@ urlpatterns = [
     # eliminar dpto
     
     # listar empleados
-    path ('empleados/lista', views.lista_empleados, name="lista_empleados"),
+    path ('empleados/lista/', views.lista_empleados, name="lista_empleados"),
     # ver empleado
     path ('empleados/<int:id>/', views.ver_empleado, name="ver_empleado"),
     

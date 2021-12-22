@@ -7,8 +7,18 @@
     <title>Lista de empleados</title>
 </head>
 <body>
+
+    <form action="" method="get">
+        {{form.as_p}}
+        <input type="submit" value="Filtrar">
+    </form>
+
+
     {%for empleado in lista_empleados%}
-    <p>{{empleado.nombre}}</p>
+    <h1>{{empleado.nombre}}</h1>
+    <p>{{empleado.apellido}}</p>
+    <p>{{empleado.sueldo}}</p>
+    <p>{{empleado.departamento.nombre}}</p>
     {%endfor%}
 </body>
 </html>
